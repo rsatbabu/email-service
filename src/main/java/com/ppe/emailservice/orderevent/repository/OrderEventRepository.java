@@ -1,4 +1,4 @@
-package com.example.demo.orderevent.repository;
+package com.ppe.emailservice.orderevent.repository;
 
 import java.util.List;
 
