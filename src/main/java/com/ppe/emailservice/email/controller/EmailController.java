@@ -3,14 +3,10 @@ package com.ppe.emailservice.email.controller;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
-import org.springframework.web.client.HttpClientErrorException;
 
-import com.fasterxml.jackson.core.JsonProcessingException;
-import com.fasterxml.jackson.databind.ObjectMapper;
 import com.ppe.emailservice.orderevent.entity.OrderEventEntity;
 import com.ppe.emailservice.orderevent.repository.OrderEventRepository;
 
@@ -20,6 +16,11 @@ public class EmailController {
 	@Autowired
 	private OrderEventRepository orderEventRepository;
 
+	/**
+	 * This function simulates a kafka consumer reading from a message queue
+	 * and sending an email confirmation to the customers.
+	 * 
+	 */
 	@CrossOrigin(origins = "*", maxAge = 3600)
 	@RequestMapping("/processOrderEventsForEmail")
 	public void processOrderEventsForEmail() {
@@ -27,7 +28,7 @@ public class EmailController {
 		// Simulate a Consumer reading from MQ
 		List<OrderEventEntity> orderEventEntities = orderEventRepository.findByEmailconsumedFalse();
 
-		// Send an email to customer
+		// Send an email to customer after reading the message from the Queue
 		orderEventEntities.stream().forEach(orderEventEntity -> {
 			
 			orderEventEntity.setEmailconsumed(true);
