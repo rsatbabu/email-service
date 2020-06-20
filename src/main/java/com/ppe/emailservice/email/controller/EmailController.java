@@ -4,6 +4,7 @@ import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.CrossOrigin;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -22,7 +23,7 @@ public class EmailController {
 	 * 
 	 */
 	@CrossOrigin(origins = "*", maxAge = 3600)
-	@RequestMapping("/processOrderEventsForEmail")
+	@PostMapping("/processOrderEventsForEmail")
 	public void processOrderEventsForEmail() {
 		System.out.println("called");
 		// Simulate a Consumer reading from MQ
