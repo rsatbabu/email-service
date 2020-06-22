@@ -22,7 +22,7 @@ public class EmailController {
 	 * and sending an email confirmation to the customers.
 	 * 
 	 */
-	@CrossOrigin(origins = "*", maxAge = 3600)
+	//@CrossOrigin(origins = "*", maxAge = 3600)
 	@PostMapping("/processOrderEventsForEmail")
 	public void processOrderEventsForEmail() {
 		System.out.println("called");
