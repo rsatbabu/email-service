@@ -15,7 +15,7 @@ public class EmailConsumer {
 		@Autowired
 		private ObjectMapper objectMapper;
 
-	    @KafkaListener(topics = "test1", groupId = "group_id_email_service")
+	    @KafkaListener(topics = "order_event", groupId = "group_id_email_service")
 	    public void consume(String message) throws IOException {
 	        logger.info("#### -> Sent Email -> {}", message);
 
